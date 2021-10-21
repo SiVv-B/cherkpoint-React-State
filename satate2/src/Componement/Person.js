@@ -1,25 +1,22 @@
 import React, { Component } from 'react'
 
 class Person extends Component {
-  state = {
-    isVisible: false,
-  }
-
   toggleVisibility = () => {
     this.setState({
       isVisible: !this.state.isVisible,
     })
   }
-
   constructor(props) {
     console.log('constructor()')
     super(props)
     this.state = {
+      fullName: 'Siwar Belkhir',
+      bio: 'I am a student at GoMyCode.',
+      profession: 'Student',
+
       intervall: null,
       timer: 0,
-      FullName: 'Siwar Belkhir',
-      Bio: 'I am a student at GoMyCode.',
-      Profession: 'Student',
+      isVisible: false,
     }
   }
 
@@ -36,20 +33,19 @@ class Person extends Component {
     console.log('componentDidUpdate()')
   }
 
-  componentWillUnmount(){
-   console.log("componentWillUnmount()");
-   clearInterval(this.state.intervall);
+  componentWillUnmount() {
+    console.log('componentWillUnmount()')
+    clearInterval(this.sate.intervall)
   }
   render() {
     return (
       <div>
         <button onClick={this.toggleVisibility}>
-          {' '}
           {this.state.isVisible ? 'Hide the profile' : ' Show the profile'}
         </button>
         {this.state.isVisible ? (
           <div>
-            <h1> Hello {this.state.FullName}</h1>
+            <h1> Hello {this.state.fullName}</h1>
             <img
               src={this.props.ImgSrc}
               alt="my picture"
@@ -59,8 +55,8 @@ class Person extends Component {
                 marginLeft: '5%',
               }}
             />
-            <h2> Profession: {this.state.Profession}</h2>
-            <h3> Bio: {this.state.Bio}</h3>
+            <h2> Profession: {this.state.profession}</h2>
+            <h3> Bio: {this.state.bio}</h3>
             <h2>{this.state.timer} </h2>
           </div>
         ) : (
