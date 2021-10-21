@@ -36,6 +36,10 @@ class Person extends Component {
     console.log('componentDidUpdate()')
   }
 
+  componentWillUnmount(){
+   console.log("componentWillUnmount()");
+   clearInterval(this.state.intervall);
+  }
   render() {
     return (
       <div>
