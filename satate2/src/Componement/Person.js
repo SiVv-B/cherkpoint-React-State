@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Picture from '../profilePicture.PNG';
 class Person extends Component {
   toggleVisibility = () => {
     this.setState({
@@ -11,6 +11,7 @@ class Person extends Component {
     super(props)
     this.state = {
       fullName: 'Siwar Belkhir',
+      imgSrc:Picture,
       bio: 'I am a student at GoMyCode.',
       profession: 'Student',
 
@@ -46,8 +47,7 @@ class Person extends Component {
         {this.state.isVisible ? (
           <div>
             <h1> Hello {this.state.fullName}</h1>
-            <img
-              src={this.props.ImgSrc}
+            <img src={this.state.imgSrc}
               alt="my picture"
               style={{
                 width: '30%',
